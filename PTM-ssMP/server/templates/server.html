@@ -1,0 +1,235 @@
+﻿{% load staticfiles %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="{% static 'easyui/jquery.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bower_components/Font-Awesome/css/font-awesome.css' %}">
+    <link rel="stylesheet" href="{% static 'css/build.css' %}">
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+
+    <title>PTM-ssMP</title>
+    <style type="text/css">
+        body{
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+        .bott { margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <!--网站head部分-->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="../index/" style="color: #ffffff;">PTM-ssMP</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li><a href="../index/"><i class="icon-home icon-white" ></i>Home</a></li>
+                        <li class="active"><a href="../server/"><i class="icon-tasks icon-white" ></i>Server</a></li>
+                        <li><a href="../tutorial/"><i class="icon-book icon-white" ></i>Tutorial</a></li>
+                        <li><a href="../download/"><i class="icon-download-alt icon-white" ></i>Download</a></li>
+                        <li><a href="../contact/"><i class="icon-envelope icon-white" ></i>Contact</a></li>
+                        <li style="height: 40px">
+                            <form class="form-search" enctype="multipart/form-data" role="form-inline" style="vertical-align: middle" action="../SearchJobId" method="GET" >
+                                {% csrf_token %}
+                                <div class="input-append" style="height: 40px;vertical-align:bottom">
+                                    <input type="text" id="job_id" name="job_id" class="span2 search-query" value="" style="height: 25px;vertical-align: middle;margin-top: 7px" placeholder="Search Job ID">
+                                    <button type="submit" class="btn" style="height: 25px;vertical-align: middle;margin-top: 7px"><span class="icon-search"></span></button>
+                                </div>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+		<div class="row">
+
+			<div class="row">
+				 <br/>
+			</div>
+			<div class="row">
+				<form enctype="multipart/form-data" role="form-inline" action="../results/" method="POST">
+					{% csrf_token %}
+					<div class="row">
+						<div class="row">
+							<div class="span4"><label style="font-size: 16px"><i class="icon-flag"></i>Please enter your email<small> (Optional)</small>:</label> </div>
+							<div class="span4" ><input class="input-large" name="email" id="email" type="text" placeholder="Enter your email address here." style="width:224px;height:30px;margin-left:-30px"></div>
+						</div>
+						
+						<div class="row">
+							<ul class="nav nav-list">
+								<li class="divider"></li>
+							</ul>
+						</div>
+						
+						<div class="form-group">
+							<label style="font-size: 16px"><i class="icon-flag"></i>Please input a sequence or several sequences following the example:</label>
+							<br/>
+							<textarea id="sequences" name="sequences" class="form-control text-left " rows="5" style="width: 96%"></textarea>
+						</div>
+						<div class="form-group text-center" style="font-size: 16px">
+							or upload a file: <input type="file" name="inputfile" id="inputfile">
+						</div>
+
+					</div>
+
+					<div class="row">
+						<ul class="nav nav-list">
+							<li class="divider"></li>
+						</ul>
+					</div>
+					<div class="clearfix" style="margin-bottom: 10px;"></div><!-- 清除浮动 -->
+
+					<div class="row">
+					
+						<div class="row" style="font-size: 16px; margin-left:0px">
+							<i class="icon-flag"></i>Please select PTM types:
+						</div>
+						
+						<div class="span4">
+							<fieldset>
+							<h4>Serine/threonine:</h4>
+								<div class="checkbox checkbox-primary bott">
+									<input type="checkbox" name="ST_Kinases"  value="101" id="O-GalNAc" >
+									<label for="O-GalNAc">
+										O-GalNAc
+									</label>
+								</div>
+								<div class="checkbox checkbox-primary bott">
+									<input type="checkbox" name="ST_Kinases"  value="102" id="O-GlcNAc" >
+									<label for="O-GlcNAc">
+										O-GlcNAc
+									</label>
+								</div>
+								<div class="checkbox checkbox-primary bott">
+									<input type="checkbox" name="ST_Kinases"  value="103" id="Proteolytic Cleavage" >
+									<label for="Proteolytic Cleavage">
+										Proteolytic Cleavage
+									</label>
+								</div>
+								<div class="checkbox checkbox-primary bott">
+									<input type="checkbox" name="ST_Kinases"  value="104" id="Phosphorylation1" >
+									<label for="Phosphorylation1">
+										Phosphorylation
+									</label>
+								</div>
+							</fieldset>
+						</div>
+						
+						<div class="span4">
+							<fieldset>
+							<h4>Lysine:</h4>
+								<div class="checkbox checkbox-success bott">
+									<input type="checkbox" name="K_Kinases"  value="201" id="Lysine Acetylation" >
+									<label for="Lysine Acetylation">
+										Lysine Acetylation
+									</label>
+								</div>
+								<div class="checkbox checkbox-success bott">
+									<input type="checkbox" name="K_Kinases"  value="202" id="Ubiquitination" >
+									<label for="Ubiquitination">
+										Ubiquitination
+									</label>
+								</div>
+								<div class="checkbox checkbox-success bott">
+									<input type="checkbox" name="K_Kinases"  value="203" id="Methylation" >
+									<label for="Methylation">
+										Methylation
+									</label>
+								</div>
+								<div class="checkbox checkbox-success bott">
+									<input type="checkbox" name="K_Kinases"  value="204" id="Sumoylation" >
+									<label for="Sumoylation">
+										Sumoylation
+									</label>
+								</div>
+							</fieldset>
+						 </div>
+						<div class="span4">
+							<fieldset>
+							<h4>Tyrosine:</h4>
+								<div class="checkbox checkbox-info bott">
+									<input type="checkbox" name="Y_Kinases"  value="41" id="Sulfation" >
+									<label for="Sulfation">
+										Sulfation
+									</label>
+								</div>
+								<div class="checkbox checkbox-info bott">
+									<input type="checkbox" name="Y_Kinases"  value="42" id="Phosphorylation2" >
+									<label for="Phosphorylation2">
+										Phosphorylation
+									</label>
+								</div>
+							</fieldset>
+						 </div>
+
+				</div>
+					<div class="row">
+						<ul class="nav nav-list">
+							<li class="divider"></li>
+						</ul>
+					</div>
+					<div class="row" style="width: 100%">
+							<div style="align-content: left">
+								<div class="span4" style="font-size: 16px; margin-left:0px">
+									<i class="icon-flag"></i>Please select a threshold for specificity:
+								</div>
+								<div class="span1 checkbox checkbox-warning checkbox-circle">
+									<input type="radio" name="threshold" value="30" id="threshold1" />
+									<label for="threshold1">
+										90%
+									</label>
+								</div>
+								<div class="span1 checkbox checkbox-warning checkbox-circle">
+									<input type="radio" name="threshold" value="31" id="threshold2" />
+									<label for="threshold2">
+										95%
+									</label>
+								</div>
+								<div class="span1 checkbox checkbox-warning checkbox-circle">
+									<input type="radio" name="threshold" value="32" id="threshold3" checked="checked" />
+									<label for="threshold3">
+										99%
+									</label>
+								</div>
+							</div>
+
+					</div>
+
+
+					<div class="row">
+						<br/>
+					</div>
+
+					<div class="row">
+						<div class="span12 text-center">
+							<button type="button" class="btn btn-info" style="width: 80px" onclick='setvalue()'>Example</button>
+							<button type="reset" class="btn btn-danger" style="width: 80px">Reset</button>
+							<button type="submit" class="btn btn-primary" style="width: 80px">Submit</button>
+						</div>
+					</div>
+				</form>
+		</div>
+</div>
+</div>
+<script type="text/javascript">
+function setvalue(){
+	$("#sequences").val(">example1|PH:38,49,75,77,83,86;AC:27,93,98,117,128;UB:9,27,59,73,93,98,128|\nMGKFMKPGKVVLVLAGRYSGRKAVIVKNIDDGTSDRPYSHALVAGIDRYPRKVTAAMGKKKIAKRSKIKSFVKVYNYNHLMPTRYSVDIPLDKTVVNKDVFRDPALKRKARREAKVKFEERYKTGKNKWFFQKLRF\n>example2|PH:146;UB:265;GA:44;BR:203;CL:196;BO:203,211|\nMPGQELRTVNGSQMLLVLLVLSWLPHGGALSLAEASRASFPGPSELHSEDSRFRELRKRYEDLLTRLRANQSWEDSNTDLVPAPAVRILTPEVRLGSGGHLHLRISRAALPEGLPEASRLHRALFRLSPTASRSWDVTRPLRRQLSLARPQAPALHLRLSPPPSQSDQLLAESSSARPQLELHLRPQAARGRRRARARNGDHCPLGPGRCCRLHTVRASLEDLGWADWVLSPREVQVTMCIGACPSQFRAANMHAQIKTSLHRLKPDTVPAPCCVPASYNPMVLIQKTDTGVSLQTYDDLLAKDCHCI")
+	}
+</script>
+    <!--网站footer部分-->
+    <div class="navbar navbar-inverse navbar-fixed-bottom">
+        <div class="navbar-inner">
+            <div class="container">
+                <p style="text-align: center;color: #ffffff;padding-top: 8px;">&copy; 2017 All Rights Reserved  •  Design by <a href="#">HI_lab</a> @ <a href="#">USTC</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,113 @@
+﻿{% load staticfiles %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="{% static 'easyui/jquery.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+
+
+    <title>PTM-ssMP</title>
+    <style type="text/css">
+        body{
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+        .row p{
+            font-size:54 px;
+        }
+    </style>
+</head>
+<body>
+
+<!--网站head部分-->
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="../index/" style="color: #ffffff;">PTM-ssMP</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li class="active"><a href="../index/"><i class="icon-home icon-white" ></i>Home</a></li>
+                    <li><a href="../server/"><i class="icon-tasks icon-white" ></i>Server</a></li>
+                    <li><a href="../tutorial/"><i class="icon-book icon-white" ></i>Tutorial</a></li>
+                    <li><a href="../download/"><i class="icon-download-alt icon-white" ></i>Download</a></li>
+                    <li><a href="../contact/"><i class="icon-envelope icon-white" ></i>Contact</a></li>
+                    <li style="height: 40px">
+                        <form class="form-search" enctype="multipart/form-data" role="form-inline" style="vertical-align: middle" action="../SearchJobId" method="GET" >
+                            <div class="input-append" style="height: 40px;vertical-align:bottom">
+                                <input type="text" id="job_id" name="job_id" class="span2 search-query" value="" style="height: 25px;vertical-align: middle;margin-top: 7px" placeholder="Search Job ID">
+                                <button type="submit" class="btn" style="height: 25px;vertical-align: middle;margin-top: 7px"><span class="icon-search"></span></button>
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--网站content部分-->
+<div class="container">
+	<div class="row">
+		
+		<div class="span12">
+		<h3><i class="icon-flag"></i>Introduction</h3>
+			<p style="text-align:justify;">Post-translational modifications (PTMs) are the chemical modification of a protein after its translation and they play a crucial role in regulating variety of biological processes such as cell cycle control, DNA repair, signal transduction, protein-protein interactions and so on. Since experimental methods are high-cost and time-consuming, it is necessary to develop efficient and reliable theoretical calculation method for the identification of PTMs site. Here,a novel PTM sites prediction web server, PTM-ssMP, which combined local sequence and site specific modification profile to predict human PTM sites based on SVMs. PTM-ssMP can predict nine types of human post-translational modifications phosphorylation, sulfation, lysine acetylation, ubiquitination, methylation, sumoylation, proteolytic cleavage, N-acetylgalactosamine (O-GalNAc) and O-N-acetylglucosamine (O-GlcNAc). Comparisons with the well-known PTM sites prediction tools show that the PTM-ssMP are more competitive on PTM sites prediction, which suggests that PTM-ssMP is an effective PTM sites prediction web servers.</p>
+		</div>
+
+		<div id="myCarousel" class="span12 carousel slide">
+		  <!-- Carousel items -->
+		  <div class="carousel-inner">
+			<div class="active item"><img src="{% static 'images/11.png' %}"/></div>
+			<div class="item"><img src="{% static 'images/22.jpg' %}"/></div>
+			<div class="item"><img src="{% static 'images/33.png' %}"/></div>
+		  </div>
+		  <!-- Carousel nav -->
+		  <a class="carousel-control left" href="#myCarousel" data-slide="prev">‹</a>
+		  <a class="carousel-control right" href="#myCarousel" data-slide="next">›</a>
+		</div>
+		
+		<div class="span12" style="text-align:justify;">
+		<h3><i class="icon-flag"></i>References</h3>
+			1. Minguez, P.; Parca, L.; Diella, F.; Mende, D. R.; Kumar, R.; Helmer-Citterich, M.; Gavin, A. C.; van Noort, V.; Bork, P.Deciphering a global network of functionally associated posttranslational modifications. Mol. Sys. Biol. 2012, 8, 599.<br/>
+			2. Beltrao, P.; Albanese, V.; Kenner, L. R.; Swaney, D. L.;Burlingame, A.; Villen, J.; Lim, W. A.; Fraser, J. S.; Frydman, J.;Krogan, N. J. Systematic functional prioritization of protein posttranslational modifications. Cell 2012, 150 (2), 413 −25.<br/>
+			3. Schweiger, R.; Linial, M. Cooperativity within proximal phosphorylation sites is revealed from large-scale proteomics data. Biol. Direct 2010, 5, 6.<br/>
+			4. Minguez, P.; Letunic, I.; Parca, L.; Bork, P. PTMcode: a database of known and predicted functional associations between posttranslational modifications in proteins. Nucleic Acids Res. 2012, DOI: 10.1093/nar/gks1230.<br/>
+			5. Kurash JK, Lei H, Shen Q, Marston WL, Granda BW, et al. (2008) Methylation of p53 by Set7/9 mediates p53 acetylation and activity in vivo. Mol Cell 29: 392–400.<br/>
+			6. Cheung P, Tanner KG, Cheung WL, Sassone-Corsi P, Denu JM, et al. (2000) Synergistic coupling of histone H3 phosphorylation and acetylation in response to epidermal growth factor stimulation. Mol Cell 5: 905–915.<br/>
+		    <br/>
+		</div>
+		
+		<div class="span12" style="text-align:justify;">
+		<h3><i class="icon-flag"></i>CITATION:</h3>
+			<font color="red"><strong>For publication of results, please cite the following article:</strong><br/></font>
+			<strong>Liu Y, Wang M, Xi J, Luo F, Li A. PTM-ssMP: A Web Server for Predicting Different Types of Post-translational Modification Sites Using Novel Site-specific Modification Profile. International Journal of Biological Sciences. 2018; 14: 946-56.</strong><br/>
+		    <br/>
+		</div>
+		
+		<div class="sug">
+			<p><p/>
+			<p><p/>
+		</div>
+		<div class="sug">
+			<p style="font-family:verdana">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src={% static 'images/google.png' %}><img src={% static 'images/fire.png' %}><img src={% static 'images/safari.png' %}>
+             			&nbsp;&nbsp;&nbsp; <strong>For better performance, we recommend Chrome, Safari, or Mozilla as web browser !</strong><p/>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+$('.carousel').carousel();
+</script>
+<!--网站footer部分-->
+<div class="navbar navbar-inverse navbar-fixed-bottom">
+    <div class="navbar-inner">
+        <div class="container">
+            <p style="text-align: center;color: #ffffff;padding-top: 8px;">&copy; 2017 All Rights Reserved  •
+                Design by <a href="http://bioinformatics.ustc.edu.cn/">HI_lab</a> @ <a href="http://ustc.edu.cn/">USTC</a></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

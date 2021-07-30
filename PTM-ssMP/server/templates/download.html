@@ -1,0 +1,93 @@
+﻿{% load staticfiles %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="{% static 'easyui/jquery.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+
+    <title>PTM-ssMP</title>
+
+    <style type="text/css">
+        body{
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+    </style>
+</head>
+<body>
+<!--网站head部分-->
+<!--网站head部分-->
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="../index/" style="color: #ffffff;">PTM-ssMP</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li><a href="../index/"><i class="icon-home icon-white" ></i>Home</a></li>
+                    <li><a href="../server/"><i class="icon-tasks icon-white" ></i>Server</a></li>
+                    <li><a href="../tutorial/"><i class="icon-book icon-white" ></i>Tutorial</a></li>
+                    <li class="active"><a href="../download/"><i class="icon-download-alt icon-white" ></i>Download</a></li>
+                    <li><a href="../contact/"><i class="icon-envelope icon-white" ></i>Contact</a></li>
+                    <li style="height: 40px">
+                        <form class="form-search" enctype="multipart/form-data" role="form-inline" style="vertical-align: middle" action="../SearchJobId" method="GET" >
+                            {% csrf_token %}
+                            <div class="input-append" style="height: 40px;vertical-align:bottom">
+                                <input type="text" id="job_id" name="job_id" class="span2 search-query" value="" style="height: 25px;vertical-align: middle;margin-top: 7px" placeholder="Search Job ID">
+                                <button type="submit" class="btn" style="height: 25px;vertical-align: middle;margin-top: 7px"><span class="icon-search"></span></button>
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--网站content部分-->
+<div class="container">
+    <div class="row">
+	   <div class="span12">
+			<h3><i class="icon-flag"></i>Dataset description:</h3>
+				<p style="text-align:justify;">&nbsp;&nbsp;&nbsp;&nbsp;The experimentally determined phosphorylation, lysine acetylation, ubiquitination, sumoylation, methylation, sulfation, proteolytic cleavage, O-GalNAc and O-GlcNAc site are extracted from several public database including HPRD (Peri, et al., 2004), dbPTM version 3.0 (Lu, et al., 2012), Phospho.ELM (Diella, et al., 2004), PhosphoSitePlus (Hornbeck, et al., 2011), dbOGAP (Wang, et al., 2011) and SysPTM (Li, et al., 2009). We extract all of the experimentally verified PTM sites in human protein from these databases for further analysis. To eliminate sequence redundancy and avoid overestimates of the prediction performance, we use CD-HIT (Huang, et al., 2010) to ensure that none of the protein sequences show a sequence similarity of more than 40% for each PTM type. The details of the final dataset are shown in the following table:</p>
+		</div>
+		<div class="carousel-inner">
+			<div class="active item"><img src="{% static 'images/t5.png' %}"/></div>
+		  </div>
+		<div class="span12">
+		<div class="span12">
+			<p style="text-align:justify;">Ubi,ubiquination; Ace, acetylation; Meth, methylation; Sumo, sumoylation; O-GalNAc, O-N-acetylgalactosamine; O-GlcNAc, O-N-acetylglucosamine; Prot, proteolytic cleavage</p>
+		</div>
+			<h3><i class="icon-flag"></i>Download dataset:</h3>
+			<ul>
+				
+				<li><a href={% static 'datasets/positive.rar' %} target="_blank">Positive dataset</a></li>
+				<li><a href={% static 'datasets/negative.rar' %} target="_blank">Negative dataset</a></li>
+			</ul>
+		</div>
+		<div class="span12" style="text-align:justify;">
+		<h3><i class="icon-flag"></i>References</h3>
+			1. Diella, F., et al. (2004) Phospho. ELM: a database of experimentally verified phosphorylation sites in eukaryotic proteins, BMC bioinformatics, 5, 79.<br/>
+			2. Hornbeck, P.V., et al. (2011) PhosphoSitePlus: a comprehensive resource for investigating the structure and function of experimentally determined post-translational modifications in man and mouse, Nucleic acids research, gkr1122.<br/>
+			3. Huang, Y., et al. (2010) CD-HIT Suite: a web server for clustering and comparing biological sequences, Bioinformatics, 26, 680-682.<br/>
+			4. Li, H., et al. (2009) SysPTM: a systematic resource for proteomic research on post-translational modifications, Molecular & Cellular Proteomics, 8, 1839-1849.<br/>
+			5. Lu, C.-T., et al. (2012) DbPTM 3.0: an informative resource for investigating substrate site specificity and functional association of protein post-translational modifications, Nucleic acids research, gks1229.<br/>
+			6.Peri, S., et al. (2004) Human protein reference database as a discovery resource for proteomics, Nucleic acids research, 32, D497-D501.<br/>
+			7.Wang, J., et al. (2011) dbOGAP-an integrated bioinformatics resource for protein O-GlcNAcylation, BMC bioinformatics, 12, 91.<br/>
+		</div>
+    </div>
+</div>
+
+<!--网站footer部分-->
+<div class="navbar navbar-inverse navbar-fixed-bottom">
+    <div class="navbar-inner">
+        <div class="container">
+            <p style="text-align: center;color: #ffffff;padding-top: 8px;">&copy; 2017 All Rights Reserved  •
+                Design by <a href="http://bioinformatics.ustc.edu.cn/">HI_lab</a> @ <a href="http://www.ustc.edu.cn/">USTC</a></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
