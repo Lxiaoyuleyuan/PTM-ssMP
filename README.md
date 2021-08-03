@@ -3,9 +3,10 @@
 ![image](https://user-images.githubusercontent.com/28085486/127601007-94bc93e9-ba26-4b5d-9030-0ba8cd5eefbe.png)
 
 Server
-![image](https://user-images.githubusercontent.com/28085486/127607861-3016c625-1379-4ab0-9096-8dea9c1a2790.png)
+![image](https://user-images.githubusercontent.com/28085486/127941598-113cff41-57a7-4981-8ab5-a4e40025ef4c.png)
+
 Results
-![image](https://user-images.githubusercontent.com/28085486/127607947-8d5ab6f7-f522-4ad0-94c9-959f150c64bb.png)
+![image](https://user-images.githubusercontent.com/28085486/127941661-03df4174-67d4-48a7-885b-629a04d1434a.png)
 
 Contact Us
 PTM-ssMP: post-translational modifications sites prediction based on site specific modification profile
